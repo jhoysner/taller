@@ -32,6 +32,7 @@ Route::group([ 'middleware' => 'auth'] ,function(){
 
   Route::post('proyectos-productos', 'ProductoController@proyectoProductos')->name('proyectos.productos');
   Route::get('proyectos-productos/{id}', 'ProductoController@proyectoProductoDelete')->name('proyecto.producto.delete'); 
+  Route::get('proyectos/image/{id}', 'ProyectoController@proyectoImage')->name('proyecto.image'); 
 
 
   Route::post('proyectos-empleados', 'EmpleadosController@proyectoEmpleado')->name('proyectos.empleados');
@@ -39,5 +40,9 @@ Route::group([ 'middleware' => 'auth'] ,function(){
 
 
   Route::get('proyecto-pdf/{id}', 'ProyectoController@proyectoPdf')->name('proyecto.pdf');
+  
+  Route::post('subirimagenes/{id}', 'ImageController@store');
+
+  Route::get('proyectos/imagenes/delete/{id}', 'ImageController@destroy');
 
 });

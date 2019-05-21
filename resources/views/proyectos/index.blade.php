@@ -58,6 +58,7 @@
 
                   <td class="text-center">
                       <a href="{{ url('/proyectos/'.$data->id)}}" class="btn btn-primary btn-xs "><i class="fa fa-file-text-o" ></i></a>  
+                      <a href="{{ url('/proyectos/image/'.$data->id)}}" class="btn btn-default btn-xs "><i class="fa fa-image" ></i></a>  
                       <a href="{{ url('/proyectos/'.$data->id.'/edit')}}" class="btn btn-warning btn-xs">
                               <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                       </a>     
@@ -78,13 +79,10 @@
               </tbody>
             </table>
            
-        
+            <center>
+                {{ $proyectos->links() }}
+            </center>
         </div>
-        <!-- /.box-body -->
-{{--         <div class="box-footer">
-          Footer
-        </div> --}}
-        <!-- /.box-footer-->
       </div>
       <!-- /.box -->
 

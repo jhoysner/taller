@@ -19,8 +19,8 @@ class CreateProyectoServicioTable extends Migration
             $table->unsignedInteger('servicio_id');
             $table->timestamps();
 
-            $table->foreign('proyecto_id')->references('id')->on('proyectos');
-            $table->foreign('servicio_id')->references('id')->on('servicios');
+            $table->foreign('proyecto_id')->references('id')->on('proyectos')->onDelete('cascade');
+            $table->foreign('servicio_id')->references('id')->on('servicios')->onDelete('cascade');
 
         });
     }

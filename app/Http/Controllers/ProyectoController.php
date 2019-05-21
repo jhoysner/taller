@@ -6,11 +6,12 @@ use App\Cliente;
 use App\Empleado;
 use App\Producto;
 use App\Proyecto;
+use App\ProyectoImagen;
 use App\ProyectoServicio;
 use App\Servicio;
-use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use PDF;
 
 class ProyectoController extends Controller
 {
@@ -22,8 +23,7 @@ class ProyectoController extends Controller
     public function index()
     {
             
-        $proyectos = Proyecto::all();
-
+        $proyectos = Proyecto::paginate(10);
 
         return view('proyectos.index', compact('proyectos'));
     }
@@ -193,5 +193,13 @@ class ProyectoController extends Controller
 
         return $pdf->stream();
         // return view('proyectos.pdf', compact('proyecto'));
+    }
+
+    public function proyectoImage($id){
+        
+       $proyecto = Proyecto::findOrFail($id);
+       $fotos = ProyectoImagen::where('proyecto_id', $id)->get();
+
+       return view('proyectos.image', compact('proyecto', 'fotos'));
     }
 }

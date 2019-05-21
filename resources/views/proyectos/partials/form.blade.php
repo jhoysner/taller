@@ -51,8 +51,10 @@
         <input type="date" name="fecha_inicio" class="form-control"  required="required">
 
       </div>
+
     
     </div>
+
 
 
 

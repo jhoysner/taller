@@ -60,7 +60,9 @@
                 @endforeach
               </tbody>
             </table>
-           
+            <center>
+                {{ $servicios->links() }}
+            </center>
         
         </div>
         <!-- /.box-body -->

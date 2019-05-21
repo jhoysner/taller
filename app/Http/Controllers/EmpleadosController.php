@@ -18,7 +18,7 @@ class EmpleadosController extends Controller
     {
         // dd("listo");
 
-        $empleados = Empleado::all();
+        $empleados = Empleado::paginate(10);
 
         return view('empleados.index', compact('empleados'));
     }

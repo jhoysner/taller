@@ -19,8 +19,8 @@ class CreateEmpleadoProyectoTable extends Migration
             $table->unsignedInteger('empleado_id');
             $table->timestamps();
 
-            $table->foreign('proyecto_id')->references('id')->on('proyectos')->onDelete('cascade');;
-            $table->foreign('empleado_id')->references('id')->on('empleados');
+            $table->foreign('proyecto_id')->references('id')->on('proyectos')->onDelete('cascade');
+            $table->foreign('empleado_id')->references('id')->on('empleados')->onDelete('cascade');
         });
     }
 

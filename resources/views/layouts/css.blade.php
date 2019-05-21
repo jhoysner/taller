@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="{{asset('css/daterangepicker.css')}}">
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="{{asset('css/bootstrap3-wysihtml5.min.css')}}">
+  <link rel="stylesheet" href="{{asset('dropzone/dist/dropzone.css')}}">
 
      <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>

@@ -21,8 +21,8 @@ class CreateProyectoProductoTable extends Migration
             $table->double('monto');
             $table->timestamps();
 
-            $table->foreign('proyecto_id')->references('id')->on('proyectos')->onDelete('cascade');;
-            $table->foreign('producto_id')->references('id')->on('productos');        
+            $table->foreign('proyecto_id')->references('id')->on('proyectos')->onDelete('cascade');
+            $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade');        
         });
     }
 
