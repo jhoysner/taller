@@ -121,15 +121,18 @@ class ProductoController extends Controller
         $proyecto_producto->producto_id = $request->producto;
         $proyecto_producto->qty = $request->qty;
 
-        $produto = Producto::findOrFail($request->producto);
+        $producto = Producto::findOrFail($request->producto);
         
-        $proyecto_producto->monto = $produto->price * $request->qty;
+        $proyecto_producto->monto = $producto->price * $request->qty;
 
         $proyecto_producto->save();
 
         $proyecto = Proyecto::findOrFail($proyecto_producto->proyecto_id);
         $proyecto->monto_producto = $proyecto->monto_producto + $proyecto_producto->monto;
         $proyecto->save();
+
+        $producto->qty = $producto->qty - $request->qty;
+        $producto->save();
         
         return redirect()->route('proyectos.edit',$request->proyecto);
 
@@ -154,6 +157,13 @@ class ProductoController extends Controller
         }
 
         $proyecto->save();
+
+
+        $producto = Producto::findOrFail($proyecto_producto->producto_id);
+        $producto->qty =  $producto->qty + $proyecto_producto->qty;
+
+        $producto->save();
+
 
         return back();
 
