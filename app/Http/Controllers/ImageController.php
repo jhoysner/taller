@@ -109,7 +109,7 @@ class ImageController extends Controller
      */
     public function destroy($id)
     {
-        $imagen  = ProyectoImagen::findOrFail($id);
+        $imagen  = ProyectoImagen::find($id);
             //$datos = Imagen::find($id);
 
         if(\File::exists(public_path().'/images/'.$imagen->url)){
